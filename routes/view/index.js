@@ -1,20 +1,20 @@
-var router = require("express").Router();
-var db = require("../../models");
+const router = require("express").Router();
+const db = require("../../models");
 
 // This route renders the homepage
-router.get("/", function(req, res) {
+router.get("/", (req, res) => {
   db.Headline.find({ saved: false })
     .sort({ date: -1 })
-    .then(function(dbArticles) {
+    .then(dbArticles => {
       res.render("home", { articles: dbArticles });
     });
 });
 
 // This route renders the saved handlebars page
-router.get("/saved", function(req, res) {
+router.get("/saved", (req, res) => {
   db.Headline.find({ saved: true })
     .sort({ date: -1 })
-    .then(function(dbArticles) {
+    .then(dbArticles => {
       res.render("saved", { articles: dbArticles });
     });
 });

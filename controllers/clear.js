@@ -1,12 +1,12 @@
-var db = require("../models");
+const db = require("../models");
 
 module.exports = {
-  clearDB: function(req, res) {
+  clearDB(req, res) {
     db.Headline.remove({})
-      .then(function() {
+      .then(() => {
         return db.Note.remove({});
       })
-      .then(function() {
+      .then(() => {
         res.json({ ok: true });
       });
   }

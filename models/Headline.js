@@ -2,13 +2,13 @@
 // ==============
 
 // Require mongoose
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 // Create a schema class using mongoose's schema method
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 // Create the headlineSchema with our schema class
-var headlineSchema = new Schema({
+const headlineSchema = new Schema({
   // headline, a string, must be entered
   headline: {
     type: String,
@@ -37,7 +37,7 @@ var headlineSchema = new Schema({
 });
 
 // Create the Headline model using the headlineSchema
-var Headline = mongoose.model("Headline", headlineSchema);
+const Headline = mongoose.model("Headline", headlineSchema);
 
 // Export the Headline model
 module.exports = Headline;
